@@ -1,5 +1,5 @@
 //
-//  owbLoginViewController.h
+//  owbMenuViewController.h
 //  client
 //
 //  Created by  tsgsz on 10/7/13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface owbLoginViewController : UITableViewController<UITextFieldDelegate>
+@interface owbMenuViewController : UIViewController
 
 @end

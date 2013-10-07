@@ -2,13 +2,25 @@
 //  owbLoginViewController.m
 //  client
 //
-//  Created by  tsgsz on 9/25/13.
+//  Created by  tsgsz on 10/7/13.
 //  Copyright (c) 2013 tsgsz. All rights reserved.
 //
 
 #import "owbLoginViewController.h"
+#import "owbCommon.h"
+#import "owbRuntime.h"
+#import "owbMacroBlock.h"
+#import "owbBackGroundViewController.h"
 
-@interface owbLoginViewController ()
+@interface owbLoginViewController (PRIVATE)
+@property (nonatomic, strong) NSArray* _labels;
+@property (nonatomic, strong) NSArray* _fields;
+@property (nonatomic, strong) NSArray* _place_holders;
+@property (nonatomic, strong) UITextField* _account_text;
+@property (nonatomic, strong) UITextField* _passwd_text;
+@property (nonatomic, strong) UIButton* _login_button;
+
+-(BOOL) _Login;
 
 @end
 
@@ -18,7 +30,30 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        [self.tableView setBackgroundColor:[UIColor clearColor]];
+        [self.tableView setScrollEnabled: NO];
+        self._labels = @[OWB_ACCOUNT_LABEL, OWB_PASSWD_LABEL];
+        self._account_text = [[UITextField alloc]initWithFrame:LOGIN_INPUT_RECT];
+        self._account_text.borderStyle = UITextBorderStyleNone;
+        self._account_text.returnKeyType = UIReturnKeyNext;
+        self._account_text.delegate = self;
+        self._account_text.placeholder = OWB_LOGIN_NAME_PLACEHOLDER;
+        self._passwd_text = [[UITextField alloc]initWithFrame:LOGIN_INPUT_RECT];
+        self._passwd_text.borderStyle = UITextBorderStyleNone;
+        self._passwd_text.returnKeyType = UIReturnKeyJoin;
+        self._passwd_text.delegate = self;
+        self._passwd_text.secureTextEntry = YES;
+        self._passwd_text.placeholder = OWB_LOGIN_PASSWD_PLACEHOLDER;
+        self._fields = @[self._account_text, self._passwd_text];
+        self._login_button = [[UIButton alloc] initWithFrame:LOGIN_BUTTON_RECT];
+        [self._login_button setBackgroundImage:[UIImage imageNamed:LOGIN_BUTTON] forState:UIControlStateNormal];
+        [self._login_button setBackgroundImage:[UIImage imageNamed:LOGIN_BUTTON_PRESSED] forState:UIControlStateHighlighted];
+        [self._login_button addTarget:self action:@selector(_Login) forControlEvents:UIControlEventTouchUpInside];
+        
+        if ([owbRuntime SharedowbRuntime].data_manager.user.unameIsSet) {
+            self._account_text.text = [owbRuntime SharedowbRuntime].data_manager.user.uname;
+            self._passwd_text.text = [owbRuntime SharedowbRuntime].data_manager.user.passwd;
+        }
     }
     return self;
 }
@@ -26,97 +61,87 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	self.tableView.frame = LOGIN_VIEW_RECT;
+    self.tableView.backgroundView = [[UIView alloc] initWithFrame:self.tableView.bounds];
+    self.tableView.backgroundColor = [UIColor clearColor];
 }
 
-- (void)didReceiveMemoryWarning
+- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    return 1;
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return [self._labels count];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    UITableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:OWB_CELL_IDENTITFILER];
+    if (cell) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault
+                    reuseIdentifier:OWB_CELL_IDENTITFILER];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        UILabel* label = [[UILabel alloc]initWithFrame:CGRectZero];
+        label.tag = indexPath.row;
+        label.highlightedTextColor = [UIColor clearColor];
+        label.numberOfLines = 0;
+        label.opaque = NO;
+        label.backgroundColor = [UIColor clearColor];
+        [cell.contentView addSubview:label];
+    }
+    UILabel* label = (UILabel*)[cell viewWithTag:indexPath.row];
+    NSString* title = [self._labels objectAtIndex:indexPath.row];
+    CGRect cell_frame = [cell frame];
+    cell_frame.origin = CGPointMake(10, 10);
+    label.text = title;
+    [label setFont:[UIFont fontWithName:@"Helvetica" size:18.0]];
+    label.frame = CGRectInset(cell_frame,2,2);
+    [label sizeToFit];
+    UITextField* field = [self._fields objectAtIndex:indexPath.row];
+    [cell.contentView addSubview:field];
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+-(BOOL) shouldAutorotate
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return self.interfaceOrientation == UIInterfaceOrientationLandscapeRight;
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+-(BOOL) textFieldShouldReturn:(UITextField *)textField
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    BOOL rcode = YES;
+    if (textField == self._passwd_text) {
+        rcode = [self _Login];
+    }
+    [self._passwd_text resignFirstResponder];
+    return rcode;
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
+-(BOOL) _Login{
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    BOOL rcode = NO;
+    
+    if (nil == self._account_text.text || nil == self._passwd_text.text) {
+        ERROR_HUD(OWB_NOT_NULL);
+    } else {
+        [[owbRuntime SharedowbRuntime].data_manager.user setUname:self._account_text.text];
+        [[owbRuntime SharedowbRuntime].data_manager.user setPasswd:self._passwd_text.text];
+        @try {
+            rcode = [[owbRuntime SharedowbRuntime]Login];
+            if (!rcode) {
+                FAIL_HUD(OWB_WRONG_ACCOUNT_OR_PASSWD);
+            } else {
+                owbBackGroundViewController* back = (owbBackGroundViewController*) self.parentViewController;
+                [back ShowMenuView];
+            }
+        }
+        @catch (NSException *exception) {
+            ERROR_HUD(exception.reason);
+        }
+    }
+    return rcode;
 }
 
 @end

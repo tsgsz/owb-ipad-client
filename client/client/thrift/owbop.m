@@ -864,6 +864,218 @@
 
 @end
 
+@implementation owbOwbReloadOp
+
+- (id) init
+{
+  self = [super init];
+#if TARGET_OS_IPHONE || (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_5)
+#endif
+  return self;
+}
+
+- (id) initWithSponsor: (NSString *) sponsor time: (NSString *) time reload_point: (int32_t) reload_point
+{
+  self = [super init];
+  __sponsor = [sponsor retain_stub];
+  __sponsor_isset = YES;
+  __time = [time retain_stub];
+  __time_isset = YES;
+  __reload_point = reload_point;
+  __reload_point_isset = YES;
+  return self;
+}
+
+- (id) initWithCoder: (NSCoder *) decoder
+{
+  self = [super init];
+  if ([decoder containsValueForKey: @"sponsor"])
+  {
+    __sponsor = [[decoder decodeObjectForKey: @"sponsor"] retain_stub];
+    __sponsor_isset = YES;
+  }
+  if ([decoder containsValueForKey: @"time"])
+  {
+    __time = [[decoder decodeObjectForKey: @"time"] retain_stub];
+    __time_isset = YES;
+  }
+  if ([decoder containsValueForKey: @"reload_point"])
+  {
+    __reload_point = [decoder decodeInt32ForKey: @"reload_point"];
+    __reload_point_isset = YES;
+  }
+  return self;
+}
+
+- (void) encodeWithCoder: (NSCoder *) encoder
+{
+  if (__sponsor_isset)
+  {
+    [encoder encodeObject: __sponsor forKey: @"sponsor"];
+  }
+  if (__time_isset)
+  {
+    [encoder encodeObject: __time forKey: @"time"];
+  }
+  if (__reload_point_isset)
+  {
+    [encoder encodeInt32: __reload_point forKey: @"reload_point"];
+  }
+}
+
+- (void) dealloc
+{
+  [__sponsor release_stub];
+  [__time release_stub];
+  [super dealloc_stub];
+}
+
+- (NSString *) sponsor {
+  return [[__sponsor retain_stub] autorelease_stub];
+}
+
+- (void) setSponsor: (NSString *) sponsor {
+  [sponsor retain_stub];
+  [__sponsor release_stub];
+  __sponsor = sponsor;
+  __sponsor_isset = YES;
+}
+
+- (BOOL) sponsorIsSet {
+  return __sponsor_isset;
+}
+
+- (void) unsetSponsor {
+  [__sponsor release_stub];
+  __sponsor = nil;
+  __sponsor_isset = NO;
+}
+
+- (NSString *) time {
+  return [[__time retain_stub] autorelease_stub];
+}
+
+- (void) setTime: (NSString *) time {
+  [time retain_stub];
+  [__time release_stub];
+  __time = time;
+  __time_isset = YES;
+}
+
+- (BOOL) timeIsSet {
+  return __time_isset;
+}
+
+- (void) unsetTime {
+  [__time release_stub];
+  __time = nil;
+  __time_isset = NO;
+}
+
+- (int32_t) reload_point {
+  return __reload_point;
+}
+
+- (void) setReload_point: (int32_t) reload_point {
+  __reload_point = reload_point;
+  __reload_point_isset = YES;
+}
+
+- (BOOL) reload_pointIsSet {
+  return __reload_point_isset;
+}
+
+- (void) unsetReload_point {
+  __reload_point_isset = NO;
+}
+
+- (void) read: (id <TProtocol>) inProtocol
+{
+  NSString * fieldName;
+  int fieldType;
+  int fieldID;
+
+  [inProtocol readStructBeginReturningName: NULL];
+  while (true)
+  {
+    [inProtocol readFieldBeginReturningName: &fieldName type: &fieldType fieldID: &fieldID];
+    if (fieldType == TType_STOP) { 
+      break;
+    }
+    switch (fieldID)
+    {
+      case 1:
+        if (fieldType == TType_STRING) {
+          NSString * fieldValue = [inProtocol readString];
+          [self setSponsor: fieldValue];
+        } else { 
+          [TProtocolUtil skipType: fieldType onProtocol: inProtocol];
+        }
+        break;
+      case 2:
+        if (fieldType == TType_STRING) {
+          NSString * fieldValue = [inProtocol readString];
+          [self setTime: fieldValue];
+        } else { 
+          [TProtocolUtil skipType: fieldType onProtocol: inProtocol];
+        }
+        break;
+      case 3:
+        if (fieldType == TType_I32) {
+          int32_t fieldValue = [inProtocol readI32];
+          [self setReload_point: fieldValue];
+        } else { 
+          [TProtocolUtil skipType: fieldType onProtocol: inProtocol];
+        }
+        break;
+      default:
+        [TProtocolUtil skipType: fieldType onProtocol: inProtocol];
+        break;
+    }
+    [inProtocol readFieldEnd];
+  }
+  [inProtocol readStructEnd];
+}
+
+- (void) write: (id <TProtocol>) outProtocol {
+  [outProtocol writeStructBeginWithName: @"OwbReloadOp"];
+  if (__sponsor_isset) {
+    if (__sponsor != nil) {
+      [outProtocol writeFieldBeginWithName: @"sponsor" type: TType_STRING fieldID: 1];
+      [outProtocol writeString: __sponsor];
+      [outProtocol writeFieldEnd];
+    }
+  }
+  if (__time_isset) {
+    if (__time != nil) {
+      [outProtocol writeFieldBeginWithName: @"time" type: TType_STRING fieldID: 2];
+      [outProtocol writeString: __time];
+      [outProtocol writeFieldEnd];
+    }
+  }
+  if (__reload_point_isset) {
+    [outProtocol writeFieldBeginWithName: @"reload_point" type: TType_I32 fieldID: 3];
+    [outProtocol writeI32: __reload_point];
+    [outProtocol writeFieldEnd];
+  }
+  [outProtocol writeFieldStop];
+  [outProtocol writeStructEnd];
+}
+
+- (NSString *) description {
+  NSMutableString * ms = [NSMutableString stringWithString: @"OwbReloadOp("];
+  [ms appendString: @"sponsor:"];
+  [ms appendFormat: @"\"%@\"", __sponsor];
+  [ms appendString: @",time:"];
+  [ms appendFormat: @"\"%@\"", __time];
+  [ms appendString: @",reload_point:"];
+  [ms appendFormat: @"%i", __reload_point];
+  [ms appendString: @")"];
+  return [NSString stringWithString: ms];
+}
+
+@end
+
 @implementation owbOwbOp
 
 - (id) init
@@ -874,7 +1086,7 @@
   return self;
 }
 
-- (id) initWithOpid: (int32_t) opid type: (int) type draw_op: (owbOwbDrawOp *) draw_op save_op: (owbOwbSaveOp *) save_op
+- (id) initWithOpid: (int32_t) opid type: (int) type draw_op: (owbOwbDrawOp *) draw_op save_op: (owbOwbSaveOp *) save_op reload_op: (owbOwbReloadOp *) reload_op
 {
   self = [super init];
   __opid = opid;
@@ -885,6 +1097,8 @@
   __draw_op_isset = YES;
   __save_op = [save_op retain_stub];
   __save_op_isset = YES;
+  __reload_op = [reload_op retain_stub];
+  __reload_op_isset = YES;
   return self;
 }
 
@@ -911,6 +1125,11 @@
     __save_op = [[decoder decodeObjectForKey: @"save_op"] retain_stub];
     __save_op_isset = YES;
   }
+  if ([decoder containsValueForKey: @"reload_op"])
+  {
+    __reload_op = [[decoder decodeObjectForKey: @"reload_op"] retain_stub];
+    __reload_op_isset = YES;
+  }
   return self;
 }
 
@@ -932,12 +1151,17 @@
   {
     [encoder encodeObject: __save_op forKey: @"save_op"];
   }
+  if (__reload_op_isset)
+  {
+    [encoder encodeObject: __reload_op forKey: @"reload_op"];
+  }
 }
 
 - (void) dealloc
 {
   [__draw_op release_stub];
   [__save_op release_stub];
+  [__reload_op release_stub];
   [super dealloc_stub];
 }
 
@@ -1017,6 +1241,27 @@
   __save_op_isset = NO;
 }
 
+- (owbOwbReloadOp *) reload_op {
+  return [[__reload_op retain_stub] autorelease_stub];
+}
+
+- (void) setReload_op: (owbOwbReloadOp *) reload_op {
+  [reload_op retain_stub];
+  [__reload_op release_stub];
+  __reload_op = reload_op;
+  __reload_op_isset = YES;
+}
+
+- (BOOL) reload_opIsSet {
+  return __reload_op_isset;
+}
+
+- (void) unsetReload_op {
+  [__reload_op release_stub];
+  __reload_op = nil;
+  __reload_op_isset = NO;
+}
+
 - (void) read: (id <TProtocol>) inProtocol
 {
   NSString * fieldName;
@@ -1068,6 +1313,16 @@
           [TProtocolUtil skipType: fieldType onProtocol: inProtocol];
         }
         break;
+      case 5:
+        if (fieldType == TType_STRUCT) {
+          owbOwbReloadOp *fieldValue = [[owbOwbReloadOp alloc] init];
+          [fieldValue read: inProtocol];
+          [self setReload_op: fieldValue];
+          [fieldValue release_stub];
+        } else { 
+          [TProtocolUtil skipType: fieldType onProtocol: inProtocol];
+        }
+        break;
       default:
         [TProtocolUtil skipType: fieldType onProtocol: inProtocol];
         break;
@@ -1103,6 +1358,13 @@
       [outProtocol writeFieldEnd];
     }
   }
+  if (__reload_op_isset) {
+    if (__reload_op != nil) {
+      [outProtocol writeFieldBeginWithName: @"reload_op" type: TType_STRUCT fieldID: 5];
+      [__reload_op write: outProtocol];
+      [outProtocol writeFieldEnd];
+    }
+  }
   [outProtocol writeFieldStop];
   [outProtocol writeStructEnd];
 }
@@ -1117,6 +1379,8 @@
   [ms appendFormat: @"%@", __draw_op];
   [ms appendString: @",save_op:"];
   [ms appendFormat: @"%@", __save_op];
+  [ms appendString: @",reload_op:"];
+  [ms appendFormat: @"%@", __reload_op];
   [ms appendString: @")"];
   return [NSString stringWithString: ms];
 }

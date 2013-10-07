@@ -2840,22 +2840,19 @@ return [NSString stringWithString: ms];
 
 @interface owbJoinMeeting_args : NSObject <NSCoding> {
 NSString * __uname;
-NSString * __passwd;
 NSString * __mid;
 
 BOOL __uname_isset;
-BOOL __passwd_isset;
 BOOL __mid_isset;
 }
 
 #if TARGET_OS_IPHONE || (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_5)
 @property (nonatomic, retain, getter=uname, setter=setUname:) NSString * uname;
-@property (nonatomic, retain, getter=passwd, setter=setPasswd:) NSString * passwd;
 @property (nonatomic, retain, getter=mid, setter=setMid:) NSString * mid;
 #endif
 
 - (id) init;
-- (id) initWithUname: (NSString *) uname passwd: (NSString *) passwd mid: (NSString *) mid;
+- (id) initWithUname: (NSString *) uname mid: (NSString *) mid;
 
 - (void) read: (id <TProtocol>) inProtocol;
 - (void) write: (id <TProtocol>) outProtocol;
@@ -2865,12 +2862,6 @@ BOOL __mid_isset;
 - (void) setUname: (NSString *) uname;
 #endif
 - (BOOL) unameIsSet;
-
-#if !__has_feature(objc_arc)
-- (NSString *) passwd;
-- (void) setPasswd: (NSString *) passwd;
-#endif
-- (BOOL) passwdIsSet;
 
 #if !__has_feature(objc_arc)
 - (NSString *) mid;
@@ -2890,13 +2881,11 @@ self = [super init];
 return self;
 }
 
-- (id) initWithUname: (NSString *) uname passwd: (NSString *) passwd mid: (NSString *) mid
+- (id) initWithUname: (NSString *) uname mid: (NSString *) mid
 {
 self = [super init];
 __uname = [uname retain_stub];
 __uname_isset = YES;
-__passwd = [passwd retain_stub];
-__passwd_isset = YES;
 __mid = [mid retain_stub];
 __mid_isset = YES;
 return self;
@@ -2909,11 +2898,6 @@ if ([decoder containsValueForKey: @"uname"])
 {
 __uname = [[decoder decodeObjectForKey: @"uname"] retain_stub];
 __uname_isset = YES;
-}
-if ([decoder containsValueForKey: @"passwd"])
-{
-__passwd = [[decoder decodeObjectForKey: @"passwd"] retain_stub];
-__passwd_isset = YES;
 }
 if ([decoder containsValueForKey: @"mid"])
 {
@@ -2929,10 +2913,6 @@ if (__uname_isset)
 {
 [encoder encodeObject: __uname forKey: @"uname"];
 }
-if (__passwd_isset)
-{
-[encoder encodeObject: __passwd forKey: @"passwd"];
-}
 if (__mid_isset)
 {
 [encoder encodeObject: __mid forKey: @"mid"];
@@ -2942,7 +2922,6 @@ if (__mid_isset)
 - (void) dealloc
 {
 [__uname release_stub];
-[__passwd release_stub];
 [__mid release_stub];
 [super dealloc_stub];
 }
@@ -2966,27 +2945,6 @@ return __uname_isset;
 [__uname release_stub];
 __uname = nil;
 __uname_isset = NO;
-}
-
-- (NSString *) passwd {
-return [[__passwd retain_stub] autorelease_stub];
-}
-
-- (void) setPasswd: (NSString *) passwd {
-[passwd retain_stub];
-[__passwd release_stub];
-__passwd = passwd;
-__passwd_isset = YES;
-}
-
-- (BOOL) passwdIsSet {
-return __passwd_isset;
-}
-
-- (void) unsetPasswd {
-[__passwd release_stub];
-__passwd = nil;
-__passwd_isset = NO;
 }
 
 - (NSString *) mid {
@@ -3036,14 +2994,6 @@ case 1:
 case 2:
   if (fieldType == TType_STRING) {
     NSString * fieldValue = [inProtocol readString];
-    [self setPasswd: fieldValue];
-  } else { 
-    [TProtocolUtil skipType: fieldType onProtocol: inProtocol];
-  }
-  break;
-case 3:
-  if (fieldType == TType_STRING) {
-    NSString * fieldValue = [inProtocol readString];
     [self setMid: fieldValue];
   } else { 
     [TProtocolUtil skipType: fieldType onProtocol: inProtocol];
@@ -3067,16 +3017,9 @@ if (__uname != nil) {
 [outProtocol writeFieldEnd];
 }
 }
-if (__passwd_isset) {
-if (__passwd != nil) {
-[outProtocol writeFieldBeginWithName: @"passwd" type: TType_STRING fieldID: 2];
-[outProtocol writeString: __passwd];
-[outProtocol writeFieldEnd];
-}
-}
 if (__mid_isset) {
 if (__mid != nil) {
-[outProtocol writeFieldBeginWithName: @"mid" type: TType_STRING fieldID: 3];
+[outProtocol writeFieldBeginWithName: @"mid" type: TType_STRING fieldID: 2];
 [outProtocol writeString: __mid];
 [outProtocol writeFieldEnd];
 }
@@ -3089,8 +3032,6 @@ if (__mid != nil) {
 NSMutableString * ms = [NSMutableString stringWithString: @"JoinMeeting_args("];
 [ms appendString: @"uname:"];
 [ms appendFormat: @"\"%@\"", __uname];
-[ms appendString: @",passwd:"];
-[ms appendFormat: @"\"%@\"", __passwd];
 [ms appendString: @",mid:"];
 [ms appendFormat: @"\"%@\"", __mid];
 [ms appendString: @")"];
@@ -3713,7 +3654,7 @@ if ([result successIsSet]) {
 return [self recv_Login];
 }
 
-- (void) send_JoinMeeting: (NSString *) uname passwd: (NSString *) passwd mid: (NSString *) mid
+- (void) send_JoinMeeting: (NSString *) uname mid: (NSString *) mid
 {
 [outProtocol writeMessageBeginWithName: @"JoinMeeting" type: TMessageType_CALL sequenceID: 0];
 [outProtocol writeStructBeginWithName: @"JoinMeeting_args"];
@@ -3722,13 +3663,8 @@ if (uname != nil){
 [outProtocol writeString: uname];
 [outProtocol writeFieldEnd];
 }
-if (passwd != nil){
-[outProtocol writeFieldBeginWithName: @"passwd" type: TType_STRING fieldID: 2];
-[outProtocol writeString: passwd];
-[outProtocol writeFieldEnd];
-}
 if (mid != nil){
-[outProtocol writeFieldBeginWithName: @"mid" type: TType_STRING fieldID: 3];
+[outProtocol writeFieldBeginWithName: @"mid" type: TType_STRING fieldID: 2];
 [outProtocol writeString: mid];
 [outProtocol writeFieldEnd];
 }
@@ -3763,9 +3699,9 @@ if ([result mdeadIsSet]) {
                                          reason: @"JoinMeeting failed: unknown result"];
 }
 
-- (owbOwbServerInfo *) JoinMeeting: (NSString *) uname passwd: (NSString *) passwd mid: (NSString *) mid
+- (owbOwbServerInfo *) JoinMeeting: (NSString *) uname mid: (NSString *) mid
 {
-[self send_JoinMeeting : uname passwd: passwd mid: mid];
+[self send_JoinMeeting : uname mid: mid];
 return [self recv_JoinMeeting];
 }
 
@@ -3909,7 +3845,7 @@ owbJoinMeeting_args * args = [[owbJoinMeeting_args alloc] init];
 [args read: inProtocol];
 [inProtocol readMessageEnd];
 owbJoinMeeting_result * result = [[owbJoinMeeting_result alloc] init];
-[result setSuccess: [mService JoinMeeting: [args uname] passwd: [args passwd] mid: [args mid]]];
+[result setSuccess: [mService JoinMeeting: [args uname] mid: [args mid]]];
 [outProtocol writeMessageBeginWithName: @"JoinMeeting"
                                   type: TMessageType_REPLY
                             sequenceID: seqID];

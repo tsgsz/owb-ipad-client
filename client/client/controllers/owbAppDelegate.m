@@ -7,8 +7,12 @@
 //
 
 #import "owbAppDelegate.h"
+#import "owbBackGroundViewController.h"
+#import "owbRuntime.h"
 
-#import "owbHomeViewController.h"
+@interface owbAppDelegate(PRIVATE)
+
+@end
 
 @implementation owbAppDelegate
 
@@ -24,7 +28,7 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = [[owbHomeViewController alloc]init];
+    self.window.rootViewController = [[owbBackGroundViewController alloc]init];
     [application setStatusBarOrientation:UIInterfaceOrientationLandscapeRight];
     [self.window makeKeyAndVisible];
     return YES;
@@ -56,5 +60,6 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
 
 @end

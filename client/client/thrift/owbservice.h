@@ -81,7 +81,7 @@ NSDictionary * mMethodMap;
 
 @protocol owbmanager <NSObject>
 - (BOOL) Login: (owbOwbUser *) user;  // throws TException
-- (owbOwbServerInfo *) JoinMeeting: (NSString *) uname passwd: (NSString *) passwd mid: (NSString *) mid;  // throws owbOwbMissingMeeting *, owbOwbDeadMeeting *, TException
+- (owbOwbServerInfo *) JoinMeeting: (NSString *) uname mid: (NSString *) mid;  // throws owbOwbMissingMeeting *, owbOwbDeadMeeting *, TException
 - (NSString *) CreateMeeting: (NSString *) uname;  // throws TException
 @end
 

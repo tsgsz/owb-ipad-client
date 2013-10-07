@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D12F232817F1F9550085F6CC /* owbLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D12F232717F1F9550085F6CC /* owbLoginViewController.m */; };
+		D129110B17F9E34B0075899B /* owbRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = D129110A17F9E34B0075899B /* owbRuntime.m */; };
 		D17F971117E751FE00BA9880 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D17F971017E751FE00BA9880 /* UIKit.framework */; };
 		D17F971317E751FE00BA9880 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D17F971217E751FE00BA9880 /* Foundation.framework */; };
 		D17F971517E751FE00BA9880 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D17F971417E751FE00BA9880 /* CoreGraphics.framework */; };
@@ -18,7 +18,6 @@
 		D17F974A17E7532E00BA9880 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D17F973E17E7532E00BA9880 /* Default@2x.png */; };
 		D17F974B17E7532E00BA9880 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D17F973F17E7532E00BA9880 /* InfoPlist.strings */; };
 		D17F974D17E7532E00BA9880 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D17F974417E7532E00BA9880 /* main.m */; };
-		D17F975017E7575900BA9880 /* owbHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D17F974F17E7575900BA9880 /* owbHomeViewController.m */; };
 		D17F978817E8B3AF00BA9880 /* owbop.m in Sources */ = {isa = PBXBuildFile; fileRef = D17F975F17E8B3AE00BA9880 /* owbop.m */; };
 		D17F978917E8B3AF00BA9880 /* owbservice.m in Sources */ = {isa = PBXBuildFile; fileRef = D17F976117E8B3AE00BA9880 /* owbservice.m */; };
 		D17F978A17E8B3AF00BA9880 /* owbsys.m in Sources */ = {isa = PBXBuildFile; fileRef = D17F976317E8B3AE00BA9880 /* owbsys.m */; };
@@ -36,12 +35,18 @@
 		D187CFD917EF27CE00F98194 /* TSocketClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D187CFC917EF27CE00F98194 /* TSocketClient.m */; };
 		D187CFDA17EF27CE00F98194 /* TTransportException.m in Sources */ = {isa = PBXBuildFile; fileRef = D187CFCC17EF27CE00F98194 /* TTransportException.m */; };
 		D187CFDB17EF27CE00F98194 /* TSharedProcessorFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = D187CFCE17EF27CE00F98194 /* TSharedProcessorFactory.m */; };
-		D18FA15617F335EF000C86CA /* owbMeetingCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D18FA15517F335EF000C86CA /* owbMeetingCodeViewController.m */; };
+		D1BA40F317FAB0F600942C25 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D1BA40F217FAB0F600942C25 /* MBProgressHUD.m */; };
+		D1BA40F718018DFF00942C25 /* owbRuntimeDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D1BA40F618018DFF00942C25 /* owbRuntimeDataManager.m */; };
+		D1BA40FE180192E400942C25 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = D1BA40FD180192E400942C25 /* KeychainItemWrapper.m */; };
+		D1BA4101180193F800942C25 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1BA4100180193F700942C25 /* Security.framework */; };
+		D1BA423F1801D3E000942C25 /* owbLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1BA423E1801D3E000942C25 /* owbLoginViewController.m */; };
+		D1BA4245180208A100942C25 /* owbBackGroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1BA4244180208A100942C25 /* owbBackGroundViewController.m */; };
+		D1BA424818028BD600942C25 /* owbMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1BA424718028BD600942C25 /* owbMenuViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D12F232617F1F9550085F6CC /* owbLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = owbLoginViewController.h; sourceTree = "<group>"; };
-		D12F232717F1F9550085F6CC /* owbLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = owbLoginViewController.m; sourceTree = "<group>"; };
+		D129110917F9E34B0075899B /* owbRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = owbRuntime.h; sourceTree = "<group>"; };
+		D129110A17F9E34B0075899B /* owbRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = owbRuntime.m; sourceTree = "<group>"; };
 		D17F970D17E751FE00BA9880 /* client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = client.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D17F971017E751FE00BA9880 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D17F971217E751FE00BA9880 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -55,8 +60,6 @@
 		D17F973E17E7532E00BA9880 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		D17F974017E7532E00BA9880 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D17F974417E7532E00BA9880 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D17F974E17E7575900BA9880 /* owbHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = owbHomeViewController.h; sourceTree = "<group>"; };
-		D17F974F17E7575900BA9880 /* owbHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = owbHomeViewController.m; sourceTree = "<group>"; };
 		D17F975C17E759FE00BA9880 /* owbCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = owbCommon.h; sourceTree = "<group>"; };
 		D17F975E17E8B3AE00BA9880 /* owbop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = owbop.h; sourceTree = "<group>"; };
 		D17F975F17E8B3AE00BA9880 /* owbop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = owbop.m; sourceTree = "<group>"; };
@@ -99,8 +102,21 @@
 		D187CFCD17EF27CE00F98194 /* TSharedProcessorFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSharedProcessorFactory.h; sourceTree = "<group>"; };
 		D187CFCE17EF27CE00F98194 /* TSharedProcessorFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSharedProcessorFactory.m; sourceTree = "<group>"; };
 		D187CFE417EF4F5400F98194 /* KLSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLSingleton.h; sourceTree = "<group>"; };
-		D18FA15417F335EF000C86CA /* owbMeetingCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = owbMeetingCodeViewController.h; sourceTree = "<group>"; };
-		D18FA15517F335EF000C86CA /* owbMeetingCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = owbMeetingCodeViewController.m; sourceTree = "<group>"; };
+		D1BA40F117FAB0F600942C25 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		D1BA40F217FAB0F600942C25 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		D1BA40F417FABDE300942C25 /* owbMacroBlock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = owbMacroBlock.h; sourceTree = "<group>"; };
+		D1BA40F518018DFF00942C25 /* owbRuntimeDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = owbRuntimeDataManager.h; sourceTree = "<group>"; };
+		D1BA40F618018DFF00942C25 /* owbRuntimeDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = owbRuntimeDataManager.m; sourceTree = "<group>"; };
+		D1BA40FC180192E400942C25 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
+		D1BA40FD180192E400942C25 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
+		D1BA40FF1801932900942C25 /* client.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = client.entitlements; sourceTree = "<group>"; };
+		D1BA4100180193F700942C25 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		D1BA423D1801D3E000942C25 /* owbLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = owbLoginViewController.h; sourceTree = "<group>"; };
+		D1BA423E1801D3E000942C25 /* owbLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = owbLoginViewController.m; sourceTree = "<group>"; };
+		D1BA4243180208A100942C25 /* owbBackGroundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = owbBackGroundViewController.h; sourceTree = "<group>"; };
+		D1BA4244180208A100942C25 /* owbBackGroundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = owbBackGroundViewController.m; sourceTree = "<group>"; };
+		D1BA424618028BD600942C25 /* owbMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = owbMenuViewController.h; sourceTree = "<group>"; };
+		D1BA424718028BD600942C25 /* owbMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = owbMenuViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1BA4101180193F800942C25 /* Security.framework in Frameworks */,
 				D17F971117E751FE00BA9880 /* UIKit.framework in Frameworks */,
 				D17F971317E751FE00BA9880 /* Foundation.framework in Frameworks */,
 				D17F971517E751FE00BA9880 /* CoreGraphics.framework in Frameworks */,
@@ -117,9 +134,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D129110817F9E3210075899B /* models */ = {
+			isa = PBXGroup;
+			children = (
+				D129110917F9E34B0075899B /* owbRuntime.h */,
+				D129110A17F9E34B0075899B /* owbRuntime.m */,
+				D1BA40F518018DFF00942C25 /* owbRuntimeDataManager.h */,
+				D1BA40F618018DFF00942C25 /* owbRuntimeDataManager.m */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
 		D17F970417E751FE00BA9880 = {
 			isa = PBXGroup;
 			children = (
+				D187CFAA17EF27CE00F98194 /* thirdparty */,
+				D187CFDC17EF27F300F98194 /* common */,
 				D17F971617E751FE00BA9880 /* client */,
 				D17F970F17E751FE00BA9880 /* Frameworks */,
 				D17F970E17E751FE00BA9880 /* Products */,
@@ -137,6 +167,7 @@
 		D17F970F17E751FE00BA9880 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D1BA4100180193F700942C25 /* Security.framework */,
 				D17F971017E751FE00BA9880 /* UIKit.framework */,
 				D17F971217E751FE00BA9880 /* Foundation.framework */,
 				D17F971417E751FE00BA9880 /* CoreGraphics.framework */,
@@ -147,8 +178,8 @@
 		D17F971617E751FE00BA9880 /* client */ = {
 			isa = PBXGroup;
 			children = (
-				D187CFDC17EF27F300F98194 /* common */,
-				D187CFAA17EF27CE00F98194 /* thirdparty */,
+				D1BA40FF1801932900942C25 /* client.entitlements */,
+				D129110817F9E3210075899B /* models */,
 				D17F975D17E8B3AE00BA9880 /* thrift */,
 				D17F973317E7532E00BA9880 /* controllers */,
 				D17F973917E7532E00BA9880 /* resources */,
@@ -164,12 +195,12 @@
 			children = (
 				D17F973417E7532E00BA9880 /* owbAppDelegate.h */,
 				D17F973517E7532E00BA9880 /* owbAppDelegate.m */,
-				D17F974E17E7575900BA9880 /* owbHomeViewController.h */,
-				D17F974F17E7575900BA9880 /* owbHomeViewController.m */,
-				D12F232617F1F9550085F6CC /* owbLoginViewController.h */,
-				D12F232717F1F9550085F6CC /* owbLoginViewController.m */,
-				D18FA15417F335EF000C86CA /* owbMeetingCodeViewController.h */,
-				D18FA15517F335EF000C86CA /* owbMeetingCodeViewController.m */,
+				D1BA423D1801D3E000942C25 /* owbLoginViewController.h */,
+				D1BA423E1801D3E000942C25 /* owbLoginViewController.m */,
+				D1BA4243180208A100942C25 /* owbBackGroundViewController.h */,
+				D1BA4244180208A100942C25 /* owbBackGroundViewController.m */,
+				D1BA424618028BD600942C25 /* owbMenuViewController.h */,
+				D1BA424718028BD600942C25 /* owbMenuViewController.m */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -192,6 +223,7 @@
 			children = (
 				D187CFA717EF20DE00F98194 /* owbServerProxy.h */,
 				D187CFA817EF20DE00F98194 /* owbServerProxy.m */,
+				D1BA40F417FABDE300942C25 /* owbMacroBlock.h */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -212,9 +244,12 @@
 		D187CFAA17EF27CE00F98194 /* thirdparty */ = {
 			isa = PBXGroup;
 			children = (
+				D1BA40FB180192E400942C25 /* GenericKeyChain */,
+				D1BA40F017FAB0F600942C25 /* ProgressHud */,
 				D187CFAB17EF27CE00F98194 /* thriftlib */,
 			);
-			path = thirdparty;
+			name = thirdparty;
+			path = client/thirdparty;
 			sourceTree = "<group>";
 		};
 		D187CFAB17EF27CE00F98194 /* thriftlib */ = {
@@ -285,7 +320,8 @@
 			children = (
 				D187CFDD17EF281900F98194 /* base */,
 			);
-			path = common;
+			name = common;
+			path = client/common;
 			sourceTree = "<group>";
 		};
 		D187CFDD17EF281900F98194 /* base */ = {
@@ -294,6 +330,24 @@
 				D187CFE417EF4F5400F98194 /* KLSingleton.h */,
 			);
 			path = base;
+			sourceTree = "<group>";
+		};
+		D1BA40F017FAB0F600942C25 /* ProgressHud */ = {
+			isa = PBXGroup;
+			children = (
+				D1BA40F117FAB0F600942C25 /* MBProgressHUD.h */,
+				D1BA40F217FAB0F600942C25 /* MBProgressHUD.m */,
+			);
+			path = ProgressHud;
+			sourceTree = "<group>";
+		};
+		D1BA40FB180192E400942C25 /* GenericKeyChain */ = {
+			isa = PBXGroup;
+			children = (
+				D1BA40FC180192E400942C25 /* KeychainItemWrapper.h */,
+				D1BA40FD180192E400942C25 /* KeychainItemWrapper.m */,
+			);
+			path = GenericKeyChain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,6 +379,15 @@
 				CLASSPREFIX = owb;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = tsgsz;
+				TargetAttributes = {
+					D17F970C17E751FE00BA9880 = {
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
+					};
+				};
 			};
 			buildConfigurationList = D17F970817E751FE00BA9880 /* Build configuration list for PBXProject "client" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -363,16 +426,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1BA424818028BD600942C25 /* owbMenuViewController.m in Sources */,
 				D17F974517E7532E00BA9880 /* owbAppDelegate.m in Sources */,
 				D17F974D17E7532E00BA9880 /* main.m in Sources */,
-				D17F975017E7575900BA9880 /* owbHomeViewController.m in Sources */,
+				D1BA40FE180192E400942C25 /* KeychainItemWrapper.m in Sources */,
 				D17F978817E8B3AF00BA9880 /* owbop.m in Sources */,
 				D17F978917E8B3AF00BA9880 /* owbservice.m in Sources */,
 				D17F978A17E8B3AF00BA9880 /* owbsys.m in Sources */,
 				D187CFA917EF20DE00F98194 /* owbServerProxy.m in Sources */,
+				D1BA4245180208A100942C25 /* owbBackGroundViewController.m in Sources */,
+				D1BA40F317FAB0F600942C25 /* MBProgressHUD.m in Sources */,
 				D187CFCF17EF27CE00F98194 /* TBinaryProtocol.m in Sources */,
 				D187CFD017EF27CE00F98194 /* TProtocolException.m in Sources */,
 				D187CFD117EF27CE00F98194 /* TProtocolUtil.m in Sources */,
+				D1BA423F1801D3E000942C25 /* owbLoginViewController.m in Sources */,
+				D1BA40F718018DFF00942C25 /* owbRuntimeDataManager.m in Sources */,
 				D187CFD217EF27CE00F98194 /* TSocketServer.m in Sources */,
 				D187CFD317EF27CE00F98194 /* TApplicationException.m in Sources */,
 				D187CFD417EF27CE00F98194 /* TException.m in Sources */,
@@ -380,11 +448,10 @@
 				D187CFD617EF27CE00F98194 /* TMemoryBuffer.m in Sources */,
 				D187CFD717EF27CE00F98194 /* TNSFileHandleTransport.m in Sources */,
 				D187CFD817EF27CE00F98194 /* TNSStreamTransport.m in Sources */,
+				D129110B17F9E34B0075899B /* owbRuntime.m in Sources */,
 				D187CFD917EF27CE00F98194 /* TSocketClient.m in Sources */,
 				D187CFDA17EF27CE00F98194 /* TTransportException.m in Sources */,
 				D187CFDB17EF27CE00F98194 /* TSharedProcessorFactory.m in Sources */,
-				D12F232817F1F9550085F6CC /* owbLoginViewController.m in Sources */,
-				D18FA15617F335EF000C86CA /* owbMeetingCodeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +529,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_ENTITLEMENTS = client/client.entitlements;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
@@ -479,6 +547,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_ENTITLEMENTS = client/client.entitlements;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",

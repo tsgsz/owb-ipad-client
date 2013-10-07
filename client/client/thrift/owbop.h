@@ -23,7 +23,8 @@ enum owbOwbDrawOpType {
 
 enum owbOwbOpType {
   OwbOpType_DRAW = 0,
-  OwbOpType_SAVE = 1
+  OwbOpType_SAVE = 1,
+  OwbOpType_RELOAD = 2
 };
 
 @interface owbOwbPoint : NSObject <NSCoding> {
@@ -197,16 +198,60 @@ enum owbOwbOpType {
 
 @end
 
+@interface owbOwbReloadOp : NSObject <NSCoding> {
+  NSString * __sponsor;
+  NSString * __time;
+  int32_t __reload_point;
+
+  BOOL __sponsor_isset;
+  BOOL __time_isset;
+  BOOL __reload_point_isset;
+}
+
+#if TARGET_OS_IPHONE || (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_5)
+@property (nonatomic, retain, getter=sponsor, setter=setSponsor:) NSString * sponsor;
+@property (nonatomic, retain, getter=time, setter=setTime:) NSString * time;
+@property (nonatomic, getter=reload_point, setter=setReload_point:) int32_t reload_point;
+#endif
+
+- (id) init;
+- (id) initWithSponsor: (NSString *) sponsor time: (NSString *) time reload_point: (int32_t) reload_point;
+
+- (void) read: (id <TProtocol>) inProtocol;
+- (void) write: (id <TProtocol>) outProtocol;
+
+#if !__has_feature(objc_arc)
+- (NSString *) sponsor;
+- (void) setSponsor: (NSString *) sponsor;
+#endif
+- (BOOL) sponsorIsSet;
+
+#if !__has_feature(objc_arc)
+- (NSString *) time;
+- (void) setTime: (NSString *) time;
+#endif
+- (BOOL) timeIsSet;
+
+#if !__has_feature(objc_arc)
+- (int32_t) reload_point;
+- (void) setReload_point: (int32_t) reload_point;
+#endif
+- (BOOL) reload_pointIsSet;
+
+@end
+
 @interface owbOwbOp : NSObject <NSCoding> {
   int32_t __opid;
   int __type;
   owbOwbDrawOp * __draw_op;
   owbOwbSaveOp * __save_op;
+  owbOwbReloadOp * __reload_op;
 
   BOOL __opid_isset;
   BOOL __type_isset;
   BOOL __draw_op_isset;
   BOOL __save_op_isset;
+  BOOL __reload_op_isset;
 }
 
 #if TARGET_OS_IPHONE || (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_5)
@@ -214,10 +259,11 @@ enum owbOwbOpType {
 @property (nonatomic, getter=type, setter=setType:) int type;
 @property (nonatomic, retain, getter=draw_op, setter=setDraw_op:) owbOwbDrawOp * draw_op;
 @property (nonatomic, retain, getter=save_op, setter=setSave_op:) owbOwbSaveOp * save_op;
+@property (nonatomic, retain, getter=reload_op, setter=setReload_op:) owbOwbReloadOp * reload_op;
 #endif
 
 - (id) init;
-- (id) initWithOpid: (int32_t) opid type: (int) type draw_op: (owbOwbDrawOp *) draw_op save_op: (owbOwbSaveOp *) save_op;
+- (id) initWithOpid: (int32_t) opid type: (int) type draw_op: (owbOwbDrawOp *) draw_op save_op: (owbOwbSaveOp *) save_op reload_op: (owbOwbReloadOp *) reload_op;
 
 - (void) read: (id <TProtocol>) inProtocol;
 - (void) write: (id <TProtocol>) outProtocol;
@@ -245,6 +291,12 @@ enum owbOwbOpType {
 - (void) setSave_op: (owbOwbSaveOp *) save_op;
 #endif
 - (BOOL) save_opIsSet;
+
+#if !__has_feature(objc_arc)
+- (owbOwbReloadOp *) reload_op;
+- (void) setReload_op: (owbOwbReloadOp *) reload_op;
+#endif
+- (BOOL) reload_opIsSet;
 
 @end
 
