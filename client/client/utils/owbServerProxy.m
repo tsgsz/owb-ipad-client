@@ -87,10 +87,10 @@ KL_SINGLETON_WITH_ARC(owbServerProxy)
     return [client Login:user];
 }
 
--(void) JoinMeeting:(NSString *)uname passwd:(NSString *)passwd mid:(NSString *)mid
+-(void) JoinMeeting:(NSString *)uname mid:(NSString *)mid
 {
     OWB_THRIFT_SERVER(owbmanager, manager_ip_, manager_port_);
-    server_info_ = [client JoinMeeting:uname passwd:passwd mid:mid];
+    server_info_ = [client JoinMeeting:uname mid:mid];
 }
 
 -(NSString*) CreateMeeting:(NSString *)uname

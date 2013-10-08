@@ -50,9 +50,9 @@
         [self._login_button setBackgroundImage:[UIImage imageNamed:LOGIN_BUTTON_PRESSED] forState:UIControlStateHighlighted];
         [self._login_button addTarget:self action:@selector(_Login) forControlEvents:UIControlEventTouchUpInside];
         
-        if ([owbRuntime SharedowbRuntime].data_manager.user.unameIsSet) {
-            self._account_text.text = [owbRuntime SharedowbRuntime].data_manager.user.uname;
-            self._passwd_text.text = [owbRuntime SharedowbRuntime].data_manager.user.passwd;
+        if ([owbRuntime SharedowbRuntime].user.unameIsSet) {
+            self._account_text.text = [owbRuntime SharedowbRuntime].user.uname;
+            self._passwd_text.text = [owbRuntime SharedowbRuntime].user.passwd;
         }
     }
     return self;
@@ -126,10 +126,10 @@
     if (nil == self._account_text.text || nil == self._passwd_text.text) {
         ERROR_HUD(OWB_NOT_NULL);
     } else {
-        [[owbRuntime SharedowbRuntime].data_manager.user setUname:self._account_text.text];
-        [[owbRuntime SharedowbRuntime].data_manager.user setPasswd:self._passwd_text.text];
+        [[owbRuntime SharedowbRuntime].user setUname:self._account_text.text];
+        [[owbRuntime SharedowbRuntime].user setPasswd:self._passwd_text.text];
         @try {
-            rcode = [[owbRuntime SharedowbRuntime]Login];
+            rcode = [[owbRuntime SharedowbRuntime].user_handler Login];
             if (!rcode) {
                 FAIL_HUD(OWB_WRONG_ACCOUNT_OR_PASSWD);
             } else {

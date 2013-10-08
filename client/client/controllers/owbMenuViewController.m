@@ -52,7 +52,7 @@
 -(void) _CreateMeeting
 {
     @try {
-        NSString* meeting_code = [[owbRuntime SharedowbRuntime]CreateMeeting];
+        NSString* meeting_code = [[owbRuntime SharedowbRuntime].meeting_handler CreateMeeting];
         [UIPasteboard generalPasteboard].string = meeting_code;
         UIAlertView* code_view = [[UIAlertView alloc]initWithTitle:OWB_CREATE_MEETING_ALERT message:meeting_code delegate:self cancelButtonTitle:OWB_COPY otherButtonTitles:nil, nil];
         [code_view show];

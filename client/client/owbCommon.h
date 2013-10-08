@@ -58,5 +58,7 @@
 #define OWB_WRONG_ACCOUNT_OR_PASSWD @"賬號或者密碼錯誤"
 
 #define OWB_VIEW_ANIMATED_DURATION 0.5f
+#define OWB_HB_INTERVAL 5
+#define OWB_HB_MAX_FAIL 5
 
 #endif

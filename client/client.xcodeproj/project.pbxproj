@@ -36,12 +36,14 @@
 		D187CFDA17EF27CE00F98194 /* TTransportException.m in Sources */ = {isa = PBXBuildFile; fileRef = D187CFCC17EF27CE00F98194 /* TTransportException.m */; };
 		D187CFDB17EF27CE00F98194 /* TSharedProcessorFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = D187CFCE17EF27CE00F98194 /* TSharedProcessorFactory.m */; };
 		D1BA40F317FAB0F600942C25 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D1BA40F217FAB0F600942C25 /* MBProgressHUD.m */; };
-		D1BA40F718018DFF00942C25 /* owbRuntimeDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D1BA40F618018DFF00942C25 /* owbRuntimeDataManager.m */; };
 		D1BA40FE180192E400942C25 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = D1BA40FD180192E400942C25 /* KeychainItemWrapper.m */; };
 		D1BA4101180193F800942C25 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1BA4100180193F700942C25 /* Security.framework */; };
 		D1BA423F1801D3E000942C25 /* owbLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1BA423E1801D3E000942C25 /* owbLoginViewController.m */; };
 		D1BA4245180208A100942C25 /* owbBackGroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1BA4244180208A100942C25 /* owbBackGroundViewController.m */; };
 		D1BA424818028BD600942C25 /* owbMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1BA424718028BD600942C25 /* owbMenuViewController.m */; };
+		D1BA424C18045D7B00942C25 /* owbUserHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D1BA424B18045D7B00942C25 /* owbUserHandler.m */; };
+		D1BA424F18045DCA00942C25 /* owbMeetingHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D1BA424E18045DCA00942C25 /* owbMeetingHandler.m */; };
+		D1BA425218045DDB00942C25 /* owbHbHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D1BA425118045DDB00942C25 /* owbHbHandler.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,8 +107,6 @@
 		D1BA40F117FAB0F600942C25 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		D1BA40F217FAB0F600942C25 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		D1BA40F417FABDE300942C25 /* owbMacroBlock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = owbMacroBlock.h; sourceTree = "<group>"; };
-		D1BA40F518018DFF00942C25 /* owbRuntimeDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = owbRuntimeDataManager.h; sourceTree = "<group>"; };
-		D1BA40F618018DFF00942C25 /* owbRuntimeDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = owbRuntimeDataManager.m; sourceTree = "<group>"; };
 		D1BA40FC180192E400942C25 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
 		D1BA40FD180192E400942C25 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		D1BA40FF1801932900942C25 /* client.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = client.entitlements; sourceTree = "<group>"; };
@@ -117,6 +117,13 @@
 		D1BA4244180208A100942C25 /* owbBackGroundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = owbBackGroundViewController.m; sourceTree = "<group>"; };
 		D1BA424618028BD600942C25 /* owbMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = owbMenuViewController.h; sourceTree = "<group>"; };
 		D1BA424718028BD600942C25 /* owbMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = owbMenuViewController.m; sourceTree = "<group>"; };
+		D1BA424A18045D7B00942C25 /* owbUserHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = owbUserHandler.h; sourceTree = "<group>"; };
+		D1BA424B18045D7B00942C25 /* owbUserHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = owbUserHandler.m; sourceTree = "<group>"; };
+		D1BA424D18045DCA00942C25 /* owbMeetingHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = owbMeetingHandler.h; sourceTree = "<group>"; };
+		D1BA424E18045DCA00942C25 /* owbMeetingHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = owbMeetingHandler.m; sourceTree = "<group>"; };
+		D1BA425018045DDB00942C25 /* owbHbHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = owbHbHandler.h; sourceTree = "<group>"; };
+		D1BA425118045DDB00942C25 /* owbHbHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = owbHbHandler.m; sourceTree = "<group>"; };
+		D1BA42561804639500942C25 /* owbHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = owbHandler.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,8 +146,6 @@
 			children = (
 				D129110917F9E34B0075899B /* owbRuntime.h */,
 				D129110A17F9E34B0075899B /* owbRuntime.m */,
-				D1BA40F518018DFF00942C25 /* owbRuntimeDataManager.h */,
-				D1BA40F618018DFF00942C25 /* owbRuntimeDataManager.m */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -178,6 +183,7 @@
 		D17F971617E751FE00BA9880 /* client */ = {
 			isa = PBXGroup;
 			children = (
+				D1BA424918045D5B00942C25 /* handlers */,
 				D1BA40FF1801932900942C25 /* client.entitlements */,
 				D129110817F9E3210075899B /* models */,
 				D17F975D17E8B3AE00BA9880 /* thrift */,
@@ -350,6 +356,20 @@
 			path = GenericKeyChain;
 			sourceTree = "<group>";
 		};
+		D1BA424918045D5B00942C25 /* handlers */ = {
+			isa = PBXGroup;
+			children = (
+				D1BA424A18045D7B00942C25 /* owbUserHandler.h */,
+				D1BA424B18045D7B00942C25 /* owbUserHandler.m */,
+				D1BA424D18045DCA00942C25 /* owbMeetingHandler.h */,
+				D1BA424E18045DCA00942C25 /* owbMeetingHandler.m */,
+				D1BA425018045DDB00942C25 /* owbHbHandler.h */,
+				D1BA425118045DDB00942C25 /* owbHbHandler.m */,
+				D1BA42561804639500942C25 /* owbHandler.h */,
+			);
+			path = handlers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -428,19 +448,21 @@
 			files = (
 				D1BA424818028BD600942C25 /* owbMenuViewController.m in Sources */,
 				D17F974517E7532E00BA9880 /* owbAppDelegate.m in Sources */,
+				D1BA424F18045DCA00942C25 /* owbMeetingHandler.m in Sources */,
 				D17F974D17E7532E00BA9880 /* main.m in Sources */,
 				D1BA40FE180192E400942C25 /* KeychainItemWrapper.m in Sources */,
 				D17F978817E8B3AF00BA9880 /* owbop.m in Sources */,
 				D17F978917E8B3AF00BA9880 /* owbservice.m in Sources */,
 				D17F978A17E8B3AF00BA9880 /* owbsys.m in Sources */,
 				D187CFA917EF20DE00F98194 /* owbServerProxy.m in Sources */,
+				D1BA425218045DDB00942C25 /* owbHbHandler.m in Sources */,
+				D1BA424C18045D7B00942C25 /* owbUserHandler.m in Sources */,
 				D1BA4245180208A100942C25 /* owbBackGroundViewController.m in Sources */,
 				D1BA40F317FAB0F600942C25 /* MBProgressHUD.m in Sources */,
 				D187CFCF17EF27CE00F98194 /* TBinaryProtocol.m in Sources */,
 				D187CFD017EF27CE00F98194 /* TProtocolException.m in Sources */,
 				D187CFD117EF27CE00F98194 /* TProtocolUtil.m in Sources */,
 				D1BA423F1801D3E000942C25 /* owbLoginViewController.m in Sources */,
-				D1BA40F718018DFF00942C25 /* owbRuntimeDataManager.m in Sources */,
 				D187CFD217EF27CE00F98194 /* TSocketServer.m in Sources */,
 				D187CFD317EF27CE00F98194 /* TApplicationException.m in Sources */,
 				D187CFD417EF27CE00F98194 /* TException.m in Sources */,

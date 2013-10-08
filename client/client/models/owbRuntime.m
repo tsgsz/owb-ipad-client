@@ -9,17 +9,11 @@
 #import "owbRuntime.h"
 #import "KLSingleton.h"
 #import "owbServerProxy.h"
-#import "KeychainItemWrapper.h"
 #import "owbCommon.h"
 
 @interface owbRuntime(PRIVATE)
-
--(id)RealInit;
-
 @property (nonatomic, strong) KeychainItemWrapper* _key_chain;
-@property dispatch_queue_t _op_queue;
-@property dispatch_queue_t _hb_queue;
-
+-(id)RealInit;
 @end
 
 @implementation owbRuntime
@@ -32,30 +26,27 @@ KL_SINGLETON_WITH_ARC(owbRuntime)
     NSString* server_ip = [defaults stringForKey:@"server_ip"];
     int server_port = [defaults integerForKey:@"server_port"];
     [[owbServerProxy SharedowbServerProxy]BindServerIp:server_ip AndPort:server_port];
-    self.data_manager = [[owbRuntimeDataManager alloc]init];
+    self.hb_spack = [[owbOwbHbSPack alloc]init];
     self._key_chain = [[KeychainItemWrapper alloc]initWithIdentifier:OWB_CLIENT_INDENTIFIER accessGroup:nil];
     NSString* uname = [self._key_chain objectForKey:kSecAttrAccount];
     NSString* passwd = [self._key_chain objectForKey:kSecValueData];
-    [self.data_manager.user setUname:uname];
-    [self.data_manager.user setPasswd:passwd];
+    self.user = [[owbOwbUser alloc]init];
+    [self.user setUname:uname];
+    [self.user setPasswd:passwd];
     self.is_login = NO;
     return self;
 }
 
--(BOOL)Login
+-(void)SaveUser
 {
-    self.is_login = [[owbServerProxy SharedowbServerProxy]Login:self.data_manager.user];
-    return self.is_login;
+    [self._key_chain setObject:self.user.uname forKey:kSecAttrAccount];
+    [self._key_chain setObject:self.user.passwd forKey:kSecAttrAccount];
 }
 
--(NSString*) CreateMeeting
+-(void)ReInit
 {
-    return [[owbServerProxy SharedowbServerProxy]CreateMeeting:self.data_manager.user.uname];
-}
-
--(void) JoinMeetig:(NSString *)meetingCode
-{
-    return [owbServerProxy SharedowbServerProxy]JoinMeeting: passwd:<#(NSString *)#> mid:<#(NSString *)#>
+    [self.user_handler Logout];
+    [self.view_controller ShowLoginView];
 }
 
 @end

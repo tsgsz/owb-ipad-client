@@ -32,6 +32,8 @@
     
     [self _SetFirstView];
 	
+    [owbRuntime SharedowbRuntime].view_controller = self;
+    
 }
 
 -(void) _ShowMenuView
@@ -54,7 +56,7 @@
 -(void) _SetFirstView
 {
     @try {
-        BOOL is_login = [[owbRuntime SharedowbRuntime]Login];
+        BOOL is_login = [[owbRuntime SharedowbRuntime].user_handler Login];
         if (is_login) {
             return;
         }

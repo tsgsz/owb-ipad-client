@@ -31,7 +31,7 @@
 - (owbOwbHbRPack *) HeartBeat: (owbOwbHbSPack *) pack;  // throws TException
 
 - (BOOL) Login: (owbOwbUser *) user;  // throws TException
-- (void) JoinMeeting: (NSString *) uname passwd: (NSString *) passwd mid: (NSString *) mid;  // throws owbOwbMissingMeeting *, owbOwbDeadMeeting *, TException
+- (void) JoinMeeting: (NSString *) uname mid: (NSString *) mid;  // throws owbOwbMissingMeeting *, owbOwbDeadMeeting *, TException
 - (NSString *) CreateMeeting: (NSString *) uname;  // throws TException
 
 @end

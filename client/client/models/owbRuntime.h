@@ -7,13 +7,26 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "owbRuntimeDataManager.h"
+#import "owbsys.h"
+#import "KeychainItemWrapper.h"
+#import "owbUserHandler.h"
+#import "owbMeetingHandler.h"
+#import "owbHbHandler.h"
+#import "owbBackGroundViewController.h"
 
 @interface owbRuntime : NSObject
+
+@property (nonatomic, strong) owbOwbUser* user;
+@property (nonatomic, strong) owbOwbHbSPack* hb_spack;
 @property (nonatomic) BOOL is_login;
-@property (nonatomic, strong) owbRuntimeDataManager* data_manager;
+@property (nonatomic, strong) NSString* current_meeting_id;
+
+@property (nonatomic, strong) owbBackGroundViewController* view_controller;
+
+@property (nonatomic, strong) owbUserHandler* user_handler;
+@property (nonatomic, strong) owbMeetingHandler* meeting_handler;
+
 + (owbRuntime*) SharedowbRuntime;
-- (BOOL) Login;
-- (NSString*) CreateMeeting;
-- (void) JoinMeetig:(NSString*) meetingCode;
+- (void) SaveUser;
+- (void) ReInit;
 @end
