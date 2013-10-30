@@ -11,4 +11,5 @@
 @interface owbBackGroundViewController : UIViewController
 -(void) ShowLoginView;
 -(void) ShowMenuView;
+-(void) ShowCavasView;
 @end

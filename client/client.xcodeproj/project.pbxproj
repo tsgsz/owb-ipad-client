@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D107F3C71806326F00EC51DB /* owbCanvasController.m in Sources */ = {isa = PBXBuildFile; fileRef = D107F3C61806326F00EC51DB /* owbCanvasController.m */; };
 		D129110B17F9E34B0075899B /* owbRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = D129110A17F9E34B0075899B /* owbRuntime.m */; };
+		D12D0069180E1BF400B419D9 /* owbCanvas.m in Sources */ = {isa = PBXBuildFile; fileRef = D12D0068180E1BF400B419D9 /* owbCanvas.m */; };
+		D12D006C181041BD00B419D9 /* owbDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = D12D006B181041BD00B419D9 /* owbDrawer.m */; };
+		D14E42B4180B798B00B9DBEC /* owbCanvasHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D14E42B3180B798B00B9DBEC /* owbCanvasHandler.m */; };
 		D17F971117E751FE00BA9880 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D17F971017E751FE00BA9880 /* UIKit.framework */; };
 		D17F971317E751FE00BA9880 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D17F971217E751FE00BA9880 /* Foundation.framework */; };
 		D17F971517E751FE00BA9880 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D17F971417E751FE00BA9880 /* CoreGraphics.framework */; };
@@ -47,8 +51,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D107F3C51806326F00EC51DB /* owbCanvasController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = owbCanvasController.h; sourceTree = "<group>"; };
+		D107F3C61806326F00EC51DB /* owbCanvasController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = owbCanvasController.m; sourceTree = "<group>"; };
 		D129110917F9E34B0075899B /* owbRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = owbRuntime.h; sourceTree = "<group>"; };
 		D129110A17F9E34B0075899B /* owbRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = owbRuntime.m; sourceTree = "<group>"; };
+		D12D0067180E1BF400B419D9 /* owbCanvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = owbCanvas.h; sourceTree = "<group>"; };
+		D12D0068180E1BF400B419D9 /* owbCanvas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = owbCanvas.m; sourceTree = "<group>"; };
+		D12D006A181041BD00B419D9 /* owbDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = owbDrawer.h; sourceTree = "<group>"; };
+		D12D006B181041BD00B419D9 /* owbDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = owbDrawer.m; sourceTree = "<group>"; };
+		D14E42B2180B798B00B9DBEC /* owbCanvasHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = owbCanvasHandler.h; sourceTree = "<group>"; };
+		D14E42B3180B798B00B9DBEC /* owbCanvasHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = owbCanvasHandler.m; sourceTree = "<group>"; };
 		D17F970D17E751FE00BA9880 /* client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = client.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D17F971017E751FE00BA9880 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D17F971217E751FE00BA9880 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -141,11 +153,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D107F3C41806323400EC51DB /* canvas */ = {
+			isa = PBXGroup;
+			children = (
+				D107F3C51806326F00EC51DB /* owbCanvasController.h */,
+				D107F3C61806326F00EC51DB /* owbCanvasController.m */,
+				D12D0067180E1BF400B419D9 /* owbCanvas.h */,
+				D12D0068180E1BF400B419D9 /* owbCanvas.m */,
+			);
+			path = canvas;
+			sourceTree = "<group>";
+		};
 		D129110817F9E3210075899B /* models */ = {
 			isa = PBXGroup;
 			children = (
 				D129110917F9E34B0075899B /* owbRuntime.h */,
 				D129110A17F9E34B0075899B /* owbRuntime.m */,
+				D12D006A181041BD00B419D9 /* owbDrawer.h */,
+				D12D006B181041BD00B419D9 /* owbDrawer.m */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -183,6 +208,7 @@
 		D17F971617E751FE00BA9880 /* client */ = {
 			isa = PBXGroup;
 			children = (
+				D107F3C41806323400EC51DB /* canvas */,
 				D1BA424918045D5B00942C25 /* handlers */,
 				D1BA40FF1801932900942C25 /* client.entitlements */,
 				D129110817F9E3210075899B /* models */,
@@ -366,6 +392,8 @@
 				D1BA425018045DDB00942C25 /* owbHbHandler.h */,
 				D1BA425118045DDB00942C25 /* owbHbHandler.m */,
 				D1BA42561804639500942C25 /* owbHandler.h */,
+				D14E42B2180B798B00B9DBEC /* owbCanvasHandler.h */,
+				D14E42B3180B798B00B9DBEC /* owbCanvasHandler.m */,
 			);
 			path = handlers;
 			sourceTree = "<group>";
@@ -456,12 +484,16 @@
 				D17F978A17E8B3AF00BA9880 /* owbsys.m in Sources */,
 				D187CFA917EF20DE00F98194 /* owbServerProxy.m in Sources */,
 				D1BA425218045DDB00942C25 /* owbHbHandler.m in Sources */,
+				D12D0069180E1BF400B419D9 /* owbCanvas.m in Sources */,
 				D1BA424C18045D7B00942C25 /* owbUserHandler.m in Sources */,
 				D1BA4245180208A100942C25 /* owbBackGroundViewController.m in Sources */,
+				D107F3C71806326F00EC51DB /* owbCanvasController.m in Sources */,
 				D1BA40F317FAB0F600942C25 /* MBProgressHUD.m in Sources */,
 				D187CFCF17EF27CE00F98194 /* TBinaryProtocol.m in Sources */,
 				D187CFD017EF27CE00F98194 /* TProtocolException.m in Sources */,
 				D187CFD117EF27CE00F98194 /* TProtocolUtil.m in Sources */,
+				D14E42B4180B798B00B9DBEC /* owbCanvasHandler.m in Sources */,
+				D12D006C181041BD00B419D9 /* owbDrawer.m in Sources */,
 				D1BA423F1801D3E000942C25 /* owbLoginViewController.m in Sources */,
 				D187CFD217EF27CE00F98194 /* TSocketServer.m in Sources */,
 				D187CFD317EF27CE00F98194 /* TApplicationException.m in Sources */,

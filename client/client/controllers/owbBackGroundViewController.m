@@ -8,6 +8,7 @@
 
 #import "owbBackGroundViewController.h"
 #import "owbLoginViewController.h"
+#import "owbMenuViewController.h"
 #import "owbCommon.h"
 #import "owbRuntime.h"
 #import "owbMacroBlock.h"
@@ -15,9 +16,8 @@
 @interface owbBackGroundViewController ()
 @property (nonatomic, strong) owbLoginViewController* _login_controller;
 @property (nonatomic, strong) UIViewController* _current_view_controller;
+@property (nonatomic, strong) owbMenuViewController* _menu_controller;
 
-- (void) _ShowLoginView;
-- (void) _ShowMenuView;
 - (void) _SetFirstView;
 @end
 
@@ -30,18 +30,28 @@
     self._login_controller = [[owbLoginViewController alloc]initWithStyle:UITableViewStyleGrouped];
     [self addChildViewController:self._login_controller];
     
+    self._menu_controller = [[owbMenuViewController alloc]init];
+    [self addChildViewController:self._menu_controller];
+    
     [self _SetFirstView];
 	
     [owbRuntime SharedowbRuntime].view_controller = self;
     
 }
 
--(void) _ShowMenuView
+-(void) ShowMenuView
 {
-
+    [self transitionFromViewController:self._current_view_controller
+            toViewController:self._menu_controller
+            duration:OWB_VIEW_ANIMATED_DURATION
+            options:UIViewAnimationOptionAllowUserInteraction
+            animations:^(){}
+            completion:^(BOOL finished){
+                self._current_view_controller = self._menu_controller;
+    }];
 }
 
--(void) _ShowLoginView
+-(void) ShowLoginView
 {
     [self transitionFromViewController:self._current_view_controller
             toViewController:self._login_controller
@@ -58,6 +68,8 @@
     @try {
         BOOL is_login = [[owbRuntime SharedowbRuntime].user_handler Login];
         if (is_login) {
+            [self.view addSubview:self._menu_controller.view];
+            self._current_view_controller = self._menu_controller;
             return;
         }
     }
@@ -66,6 +78,7 @@
     }
     @finally {
         [self.view addSubview:self._login_controller.view];
+        self._current_view_controller = self._login_controller;
     }
 }
 

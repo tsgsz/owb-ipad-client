@@ -64,7 +64,15 @@
 
 -(void) _JoinMeeting
 {
-    
+    @try {
+        [[owbRuntime SharedowbRuntime].meeting_handler JoinMeetig:self._meeting_code_field.text];
+        owbBackGroundViewController* back =
+                     (owbBackGroundViewController*)self.parentViewController;
+        [back ShowCavasView];
+    }
+    @catch (NSException *exception) {
+        ERROR_HUD(exception.reason);
+    }
 }
 
 @end
